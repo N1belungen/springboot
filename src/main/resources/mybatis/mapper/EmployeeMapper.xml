@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.n1belungen.mapper.EmployeeMapper">
+    
+    <select id="getAllEmployee" resultType="com.n1belungen.entity.Employee">
+        select *
+        from springbootbuild.employee order by id asc;
+    </select>
+    
+    <select id="queryEmployeeByID" resultType="com.n1belungen.entity.Employee">
+        select *
+        from springbootbuild.employee where id like concat(concat('%' , #{id} , '%'));
+    </select>
+
+    <select id="queryEmployeeByName" resultType="com.n1belungen.entity.Employee">
+        select *
+        from springbootbuild.employee where name like concat(concat('%' , #{name} , '%'));
+    </select>
+
+    <insert id="addEmployee" parameterType="com.n1belungen.entity.Employee">
+        insert into springbootbuild.employee(id, name, email, gender, birthday, department)
+        values (#{id} , #{name} , #{email} , #{gender} , #{birthday} , #{department});
+    </insert>
+
+    <delete id="deleteEmployeeByID">
+        delete
+        from springbootbuild.employee
+                 where id = #{id};
+    </delete>
+
+    <update id="updateEmployee" parameterType="com.n1belungen.entity.Employee">
+        update springbootbuild.employee
+            set  name = #{name} , email = #{email} ,gender = #{gender} ,birthday = #{birthday} , department = #{department}
+        where id = #{id};
+    </update>
+</mapper>
