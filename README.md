@@ -98,19 +98,19 @@
    │      │          jquery-3.2.1.slim.min.js
    │      │          popper.min.js
    │      │
-   │      └─templates						// 前端页面目录
+   │      └─templates						   // 前端页面目录
    │          │  dashboard.html				// 主页面
    │          │  index.html					// 登录页面
    │          │
-   │          ├─commons						// 公共页面目录
+   │          ├─commons						   // 公共页面目录
    │          │      commons.html			// 公共页面
    │          │
-   │          ├─employee					// 员工页面目录
+   │          ├─employee					   // 员工页面目录
    │          │      addEmployee.html		// 增加员工页面
    │          │      editEmployee.html   	// 修改员工页面
    │          │      list.html				// 员工信息页面
    │          │
-   │          └─error						// 错误页面
+   │          └─error						   // 错误页面
    │                  404.html				// 404页面
    │
    └─test
