@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    username: root
+    password: yb15111164949A
+    # serverTimezone=GMT解决时区的报错
+    # springbootbuild 连接到springbootbuild数据库
+    url: jdbc:mysql://localhost:3306/springbootbuild?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # 自定义数据源 指定 Druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    # Druid 数据源专有配置
+    # initial-size  初始化时建立物理连接的个数
+    # min-idle      最小连接池数量
+    # max-active    最大连接池数量
+    # max-wait      获取连接时最大等待时间，单位毫秒
+    # time-between-eviction-runs-millis 指定空闲连接检查、废弃连接清理、空闲连接池大小调整之间的操作时间间隔
+    # min-evictable-idle-time-millis    指定一个空闲连接最少空闲多久后可被清除
+    # validation-query 用来检测连接是否有效的sql查询语句
+    # validation-query 为 null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用。
+    # test-while-idle  申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+    # test-on-borrow   申请连接时执行validation-query检测连接是否有效
+    # test-on-return   归还连接时执行validation-query检测连接是否有效
+    # pool-prepared-statements 是否缓存preparedStatement
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+
+    # filters 通过别名的方式配置扩展插件，常用的插件有：
+      #                                         监控统计用的filter:stat
+      #                                         日志用的filter:log4j
+      #                                         防御sql注入的filter:wall
+    # max-pool-prepared-statement-per-connection-size  最大preparedStatementCache连接
+    # use-global-data-source-stat                      合并多个DruidDataSource的监控数据
+    # connection-properties                            建立连接时要设置的连接属性
+      filters: stat,wall,log4j
+      max-pool-prepared-statement-per-connection-size: 20
+      use-global-data-source-stat: true
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
