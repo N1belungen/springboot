@@ -123,7 +123,23 @@
 
 ### 数据库结构介绍
 admin表
-字段属性               | 字段名称
-----------------------|------------------------------------------------------------------------------------------
-varchra(16)           | user_name 
-varchra(16)           | user_pwd 
+|  字段属性         | 字段名称         |
+|  ----            | ----             |
+| varchar(16)      | user_name        |
+| varchar(16)      | user_pwd         |
+
+department表
+|  字段属性         | 字段名称         |
+|  ----            | ----             |
+| int              | id               |
+| varchar(16)      | departmentname   |
+
+employee表
+|  字段属性         | 字段名称         |
+|  ----            | ----             |
+| int              | id               |
+| varchar(16)      | name             |
+| varchar(16)      | email            |
+| int              | gender           |
+| Date             | birthday         |
+| varchar(16)      | department       |
